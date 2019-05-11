@@ -1,0 +1,59 @@
+@import "../../../variables/variables";
+
+.tna-image-placeholder {
+    height: 30.0rem;
+    width: 30.0rem;
+    background: $card-background;
+}
+
+.tna-file-upload {
+    cursor: pointer;
+    height: 2.5rem;
+    width: 10.0rem;
+    position: relative;
+    border-radius: .3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+
+    border: .1rem solid $color-text-light;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, $color-primary 50%, $color-text-light 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: $color-text-light;
+    font-size: 1.0rem;
+}
+
+.tna-file-upload:hover {
+    background-position: 0 -100%;
+    color: $color-primary;
+}
+
+.tna-text {
+    font-size: 1.4rem;
+}
+
+input[type='file'] {
+    height: 2.5rem;
+    width: 10.0rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.tna-hide-el {
+    display: none !important;
+}
+
+.tna-progress-container {
+    width: 60.8rem;
+    height: 30.0rem;
+}
+
+button md-spinner {
+    max-height: 2.4rem;
+}

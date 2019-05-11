@@ -1,0 +1,21 @@
+@import "../../../../variables/variables";
+
+.tna-content {
+    .tna-event-lists {
+        overflow: auto;
+        padding: .8rem 0;
+        border-top: .1rem solid $color-primary;
+        border-bottom: .1rem solid $color-primary;
+    }
+    .tna-upcoming-event {
+        font-size: 2rem;
+        margin: 0 1.0rem;
+    }
+    .tna-event-action-buttons {
+        margin-bottom: .4rem;
+    }
+}
+
+tna-event-card {
+    cursor: pointer;
+}

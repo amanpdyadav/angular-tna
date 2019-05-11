@@ -1,0 +1,83 @@
+<div md-dialog-title>
+    <div>{{editEvent ? 'UPDATE' : 'CREATE'}} EVENT</div>
+    <md-error>NOTE: Description is suppose to be HTML content in order to get it formatted in detail view.</md-error>
+</div>
+<md-dialog-content fxLayout="row" fxLayoutAlign="space-between stretch">
+    <div fxFlex fxLayout="column" fxLayoutAlign=" stretch">
+        <div class="tna-description">
+            <md-input-container>
+                <input mdInput [(ngModel)]="data.title" placeholder="Title">
+            </md-input-container>
+            <md-error *ngIf="!data?.title || data?.title.length === 0">Title can not be empty.</md-error>
+
+            <md-input-container>
+        <textarea mdInput mdTextareaAutosize matAutosizeMinRows="25" mdAutosizeMaxRows="38"
+                  [(ngModel)]="data.description" placeholder="Description"></textarea>
+            </md-input-container>
+            <md-error *ngIf="!data?.description || data?.description.length === 0">Description can not be empty.
+            </md-error>
+        </div>
+    </div>
+    <div class="tna-divider" fxFlex="1px"></div>
+    <div class="tna-event-details" fxLayout="column" fxLayoutAlign=" center">
+        <div class="tna-details-title">PRICES</div>
+        <div class="tna-event-prices" fxLayout="column" fxLayoutAlign=" stretch" fxLayoutGap="10px">
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="24px">
+                <md-input-container fxFlex="80px">
+                    <input mdInput [(ngModel)]="data.adultPrice" placeholder="Adult price" type="number">
+                    <md-icon mdPrefix>person</md-icon>
+                </md-input-container>
+
+                <md-input-container fxFlex="80px">
+                    <input mdInput [(ngModel)]="data.familyPrice" placeholder="Family price" type="number">
+                    <md-icon mdPrefix>group</md-icon>
+                </md-input-container>
+            </div>
+            <md-error *ngIf="!data?.adultPrice || data?.adultPrice < 1">Price should be greater than 1 euro.</md-error>
+
+            <md-input-container>
+                <input mdInput [(ngModel)]="data.kidPrice" placeholder="Price for child above 10 years" type="number">
+                <md-icon mdPrefix>child_care</md-icon>
+            </md-input-container>
+
+            <md-input-container>
+                <input mdInput [value]="(data?.date | date:'d MMM y HH:mm')" #dateInput
+                       (change)="onDateChanged('evtDateError', dateInput.value)" placeholder="Event date and time">
+                <md-icon mdPrefix>perm_contact_calendar</md-icon>
+                <md-hint align="end">Use date format mm/dd/yyyy HH:mm</md-hint>
+            </md-input-container>
+            <md-error *ngIf="evtDateError">Pleae check the format of date.</md-error>
+
+            <md-input-container>
+                <input mdInput [value]="(data?.expiryDate | date:'d MMM y HH:mm')" #endDateInput
+                       (change)="onDateChanged('endDateError', endDateInput.value)"
+                       placeholder="Event registration end date and time">
+                <md-icon mdPrefix>perm_contact_calendar</md-icon>
+                <md-hint align="end">Use date format mm/dd/yyyy HH:mm</md-hint>
+            </md-input-container>
+            <md-error *ngIf="endDateError">Pleae check the format of date.</md-error>
+
+            <md-input-container>
+                <input mdInput [(ngModel)]="data.address" placeholder="Event location">
+                <md-icon mdPrefix>location_on</md-icon>
+                <md-hint align="end">Example: Yliopilaskylä 1, 20540, Turku</md-hint>
+            </md-input-container>
+
+            <md-checkbox [(ngModel)]="data.registrationRequired">Registration required</md-checkbox>
+        </div>
+    </div>
+</md-dialog-content>
+<md-dialog-actions fxLayout="row">
+    <div fxFlex></div>
+    <div fxLayout="row" fxLayoutGap="16px">
+        <button md-raised-button color="warn" (click)="closeDialog()">CANCEL</button>
+        <button md-raised-button color="primary" *ngIf="editEvent" (click)="deleteEvent()">DELETE</button>
+        <button md-raised-button color="primary"
+                [disabled]="!data?.title || data?.title.length === 0 || evtDateError || endDateError ||
+                        !data?.description || data?.description.length === 0 ||
+                        !data?.address || data?.address.length === 0 ||
+                        !data?.adultPrice || data?.adultPrice < 1"
+                (click)="onUpdateEvent()">{{editEvent ? 'UPDATE' : 'CREATE'}}
+        </button>
+    </div>
+</md-dialog-actions>

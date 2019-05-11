@@ -1,0 +1,30 @@
+<div md-dialog-title>Crop Image</div>
+<md-dialog-content fxLayout="row" fxLayoutGap="8px">
+    <div *ngIf="addingPicture" class="tna-progress-container" fxLayout="row" fxLayoutAlign="center center">
+        <md-spinner></md-spinner>
+    </div>
+    <div fxLayout="column" [class.tna-hide-el]="addingPicture">
+        <div fxFlex="27px" *ngIf="data.image" class="tna-text">
+            Drag the corner to resize the picture.
+        </div>
+        <div class="tna-file-upload" *ngIf="!data.image">
+            <span class="tna-text">ADD IMAGE</span>
+            <input accept="image/x-png,image/gif,image/jpeg" type="file" (change)="fileChangeListener($event)">
+        </div>
+        <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+    </div>
+    <div fxLayout="column" [class.tna-hide-el]="addingPicture">
+        <div fxFlex="27px" class="tna-text">RESULT</div>
+        <div *ngIf="!data.image" class="tna-image-placeholder"></div>
+        <img [src]="data.image" *ngIf="data.image" class="tna-image-placeholder" [width]="cropperSettings.croppedWidth"
+             [height]="cropperSettings.croppedHeight">
+    </div>
+</md-dialog-content>
+<md-dialog-actions fxLayout="row" fxLayoutGap="16px">
+    <div fxFlex></div>
+    <button md-raised-button color="warn" (click)="closeDialog()">CANCEL</button>
+    <button md-raised-button color="primary" [disabled]="uploading || !data.image" (click)="emitCroppedFile()">
+        <span *ngIf="!uploading">UPLOAD</span>
+        <md-spinner *ngIf="uploading"></md-spinner>
+    </button>
+</md-dialog-actions>

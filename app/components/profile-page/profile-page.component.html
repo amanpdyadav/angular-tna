@@ -1,0 +1,85 @@
+<div class="tna-header-1">USER PROFILE</div>
+<div class="tna-content tna-profile" fxLayout="column" fxLayoutAlign="space-between stretch" [formGroup]="profileForm">
+    <div fxLayout="column" fxLayoutGap="16px">
+        <div class="tna-header-2">{{ userProfile?.post || 'MEMBER' }}</div>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <div fxFlex="48" fxLayout="column" fxLayoutAlign="space-between stretch">
+                <div fxFlex="24" fxLayout="row" fxLayoutAlign="space-between end">
+                    <md-input-container fxFlex="48" floatPlaceholder="always">
+                        <input mdInput placeholder="First Name" formControlName="firstName">
+                    </md-input-container>
+
+                    <md-input-container fxFlex="48" floatPlaceholder="always">
+                        <input mdInput placeholder="Last Name" formControlName="lastName">
+                    </md-input-container>
+                </div>
+
+                <div fxFlex="24" fxLayout="row" fxLayoutAlign="space-between end">
+                    <md-input-container fxFlex="100" floatPlaceholder="always">
+                        <input mdInput placeholder="Email" formControlName="email">
+                    </md-input-container>
+                </div>
+
+                <div fxFlex="24" fxLayout="row" fxLayoutAlign="space-between end">
+                    <md-input-container fxFlex="48" floatPlaceholder="always">
+                        <input mdInput placeholder="Address" formControlName="address">
+                    </md-input-container>
+
+                    <md-input-container fxFlex="48" floatPlaceholder="always">
+                        <input mdInput placeholder="Phone" formControlName="phone">
+                    </md-input-container>
+                </div>
+            </div>
+            <div fxFlex="1px" class="tna-divider"></div>
+            <div fxFlex="48" fxLayout="column" fxLayoutAlign="center center">
+                <button md-raised-button color="accent" *ngIf="!userProfile?.profilePicture"
+                        (click)="uploadProfilePic()" class="profile-pic">UPLOAD PICTURE
+                </button>
+                <img mdTooltip="Click to upload new profile pic." *ngIf="userProfile?.profilePicture"
+                     (click)="uploadProfilePic()" class="tna-profile-pic"
+                     [src]="userProfile?.profilePicture">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="tna-divider tna-social"></div> -->
+    <div fxLayout="column" fxLayoutGap="16px">
+        <div class="tna-header-2">SOCIAL PROFILE</div>
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+            <md-input-container fxFlex="30" floatPlaceholder="always">
+                <input mdInput placeholder="Web Page" formControlName="www">
+            </md-input-container>
+
+            <md-input-container fxFlex="30" floatPlaceholder="always">
+                <input mdInput placeholder="Facebook" formControlName="facebook">
+            </md-input-container>
+
+            <md-input-container fxFlex="30" floatPlaceholder="always">
+                <input mdInput placeholder="Google" formControlName="google">
+            </md-input-container>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between end">
+            <md-input-container fxFlex="30" floatPlaceholder="always">
+                <input mdInput placeholder="Github" formControlName="github">
+            </md-input-container>
+
+            <md-input-container fxFlex="30" floatPlaceholder="always">
+                <input mdInput placeholder="Linkedin" formControlName="linkedn">
+            </md-input-container>
+
+            <md-input-container fxFlex="30" floatPlaceholder="always">
+                <input mdInput placeholder="Twitter" formControlName="twitter">
+            </md-input-container>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between end" class="action-buttons">
+        <div fxFlex="48"></div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="end " fxLayoutGap="16px">
+            <button md-raised-button color="warn" (click)="resetForm()" *ngIf="editMode">CANCEL</button>
+            <button md-raised-button color="primary" [disabled]="editMode && profileForm.invalid"
+                    (click)="!editMode ? enableEditMode(): updateUser(profileForm.value)">
+                {{ editMode ? 'UPDATE' : 'EDIT'}}
+            </button>
+        </div>
+    </div>
+</div>

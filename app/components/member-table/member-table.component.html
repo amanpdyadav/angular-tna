@@ -1,0 +1,36 @@
+<div class="tna-filters" fxLayout="row" fxLayoutAlign="space-between end">
+    <md-input-container fxFlex="58" floatPlaceholder="never">
+        <input mdInput #filter placeholder="Filter rows">
+    </md-input-container>
+    <md-select fxFlex="40" placeholder="Member type" floatPlaceholder="never" class="tna-members-filters">
+        <md-option (click)="onMemberStateSelection('')">All</md-option>
+        <md-option (click)="onMemberStateSelection('paid')">Paid</md-option>
+        <md-option (click)="onMemberStateSelection('unpaid')">Unpaid</md-option>
+    </md-select>
+</div>
+<md-table #table [dataSource]="dataSource" mdSort>
+
+    <!-- ID Column -->
+    <ng-container *ngFor="let col of displayedColumns;let i=index;" [cdkColumnDef]="col">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>
+            {{ col !== 'membershipPaid' ? col.toUpperCase() : 'MEMBERSHIP' }}
+        </md-header-cell>
+        <md-cell *cdkCellDef="let row">
+            <div *ngIf="col==='membershipPaid'" style="text-align:center;">
+                <div *ngIf="userProfile?.isBoardMember && !(row[col] && row[col]['2018']); else paid" fxLayoutAlign="space-between ceter">
+                    <div></div>
+                    <button md-raised-button color="primary"
+                            (click)="confirmMembershipPayment(row.uid)">CONFIRM
+                    </button>
+                </div>
+                <ng-template #paid>{{ row[col] && row[col]['2018'] ? 'PAID' : 'UNPAID'}}</ng-template>
+            </div>
+            <span *ngIf="col!=='membershipPaid'">{{ row[col] }}</span>
+        </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+</md-table>
+<md-paginator #paginator [length]="dataLength" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+</md-paginator>

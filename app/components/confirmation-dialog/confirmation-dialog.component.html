@@ -1,0 +1,16 @@
+<h1 md-dialog-title>{{data?.title}}</h1>
+<md-dialog-content>{{data?.content}}
+</md-dialog-content>
+<md-dialog-actions>
+    <div fxFlex></div>
+    <button md-button [mat-dialog-close]="'Cancel'" *ngIf="!data?.hideCancelButton">
+        {{(data?.cancelText ? data?.cancelText : "Cancel")}}
+    </button>
+    <!--Discard button only for project navigation-->
+    <button md-button [mat-dialog-close]="'Discard'" *ngIf="data?.discard">
+        {{ data?.discardText ? data?.discardText : "DontSave" }}
+    </button>
+    <button md-raised-button [mat-dialog-close]="'Ok'" color="primary">
+        {{ data?.confirmText ? data?.confirmText : "Confirm" }}
+    </button>
+</md-dialog-actions>

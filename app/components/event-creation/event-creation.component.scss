@@ -1,0 +1,44 @@
+@import "../../../variables/variables";
+
+md-dialog-content {
+    height: 45.0rem;
+    width: 60.0rem;
+    margin: 0;
+    padding: 0;
+}
+
+.tna-divider {
+    background: $color-primary;
+    margin: 0 1.0rem;
+}
+
+.tna-details-title {
+    height: 2.0rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    font-weight: 700;
+    border-radius: .3rem;
+    padding: .5rem 0;
+    margin-bottom: 1.2rem;
+}
+
+.tna-event-prices {
+    margin-bottom: 2.0rem;
+    .price {
+        font-size: 1.4rem;
+    }
+}
+
+md-dialog-content {
+    width: 100%;
+}
+
+md-icon {
+    margin-right: 4px;
+}
+
+.tna-description md-input-container {
+    width: 100%;
+}

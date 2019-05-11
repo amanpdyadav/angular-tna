@@ -1,0 +1,17 @@
+@import "../../../variables/variables";
+
+:host {
+    font-size: 14px;
+}
+
+.tna-filters {
+    margin-top: 0.8rem;
+}
+
+md-select {
+    transform: translateY(-1.25em);
+}
+
+.mat-column-membershipPaid, .mat-column-phone {
+    flex: 0.5;
+}

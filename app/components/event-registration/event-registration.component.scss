@@ -1,0 +1,70 @@
+@import "../../../variables/variables";
+
+:host {
+    font-size: 16px;
+}
+
+md-spinner {
+    height: 2.0rem;
+}
+
+md-dialog-content {
+    width: 50.0rem;
+    margin-bottom: 1.6rem;
+}
+
+.tna-divider {
+    background: $color-primary;
+    margin: 0 1.0rem;
+}
+
+.tna-details-title {
+    height: 2.0rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    font-weight: 700;
+    border-radius: .3rem;
+    padding: .5rem 0;
+    margin-bottom: 1.2rem;
+}
+
+.tna-event-prices {
+    margin-bottom: 2.0rem;
+    .price {
+        font-size: 1.4rem;
+    }
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.4rem;
+    word-spacing: .2rem;
+}
+
+.tna-warning {
+    font-size: 1.2rem;
+    color: $color-warn;
+    margin-top: -1.0rem;
+    margin-bottom: 1.6rem;
+}
+
+.tna-veg {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+//.tna-event-details .tna-warning{
+//    margin-bottom: 0;
+//}
+.tna-discount {
+    font-size: 1.2rem;
+    color: $color-paid-text;
+    margin-top: -1.0rem;
+    margin-bottom: 1.6rem;
+}
+
+@media screen and (max-width: 659px) {
+    font-size: 10px;
+}

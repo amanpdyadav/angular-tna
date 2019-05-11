@@ -1,0 +1,52 @@
+<div fxLayout="column" class="tna-event-details-container">
+    <div fxLayout="row" fxLayoutAlign="space-between stretch" class="tna-event-title-description">
+        <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="4px">
+            <label class="tna-event-name">
+                {{ selectedEvent?.title }}
+            </label>
+            <div fxLayout="row" fxLayoutGap="16px" class="tna-event-time-location">
+                <div fxLayout="row" fxLayoutGap="8px">
+                    <md-icon>perm_contact_calendar</md-icon>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="4px">
+                        <div>{{ selectedEvent?.date | date:'d MMM y' }}</div>
+                        <div>@{{ selectedEvent?.date | date:'HH:mm' }}</div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="8px">
+                    <md-icon>location_on</md-icon>
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>{{ selectedEvent?.address | address }}</div>
+                        <div>, {{ (selectedEvent?.address | address:'last') || 'Turku' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="250px" fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="4px">
+            <div class="tna-warning">
+				<span *ngIf="getValueOf(selectedEvent?.expiryDate) > today.valueOf()">
+                    {{'Registration expires on ' + (selectedEvent?.expiryDate | date:'d MMM y HH:mm')}}
+                </span>
+            </div>
+            <div class="tna-event-prices" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="30" fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="4px" mdTooltipPosition="above"
+                     mdTooltip="Adult price.">
+                    <md-icon>person</md-icon>
+                    <span class="price">€ {{ selectedEvent?.adultPrice | number: '2.2-2' }}</span>
+                </div>
+                <div fxFlex="30" fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="8px" mdTooltipPosition="above"
+                     mdTooltip="Family price.(2 adults + 2 kids under 10 years.)">
+                    <md-icon>group</md-icon>
+                    <span class="price">€ {{ selectedEvent?.familyPrice | number: '2.2-2'}}</span>
+                </div>
+                <div fxFlex="30" fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="8px" mdTooltipPosition="above"
+                     mdTooltip="Price for child above 10 years.">
+                    <md-icon>child_care</md-icon>
+                    <span class="price">€ {{ selectedEvent?.kidPrice | number: '2.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tna-description" fxLayout="row" fxLayoutAlign="space-between start"
+         [innerHTML]="selectedEvent?.description | safeHtml">
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="tna-header-1">BORD MEMBERS</div>
+<div class="tna-content">
+    <div fxLayout="row wrap" fxLayoutGap="24px" fxLayoutWrap class="tna-member-container">
+        <div fxFlex="40%" *ngFor="let bm of bordMembers" class="tna-member-card">
+            <tna-member-card [member]="bm"></tna-member-card>
+        </div>
+    </div>
+
+    <div class="tna-divider-line"></div>
+    <label class="tna-header-1" *ngIf="paidMembers && paidMembers.length > 0">MEMBERS</label>
+    <div fxLayout="row wrap" fxLayoutGap="24px" fxLayoutWrap class="tna-member-container">
+        <div fxFlex="40%" *ngFor="let mem of paidMembers" class="tna-member-card">
+            <tna-member-card [member]="mem"></tna-member-card>
+        </div>
+    </div>
+</div>

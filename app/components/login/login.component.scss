@@ -1,0 +1,27 @@
+@import "../../../variables/variables";
+
+md-dialog-content {
+    min-width: 27.0rem;
+    min-height: 15.0rem;
+    img {
+        width: 4.0rem;
+        margin-left: calc(50% - 2.0rem);
+    }
+}
+
+md-dialog-actions {
+    margin-bottom: 0 !important;
+}
+
+.tna-read-more {
+    text-align: center;
+    margin-top: .5rem;
+}
+
+.tna-error {
+    color: $color-warn;
+}
+
+md-input-container {
+    width: 100%;
+}

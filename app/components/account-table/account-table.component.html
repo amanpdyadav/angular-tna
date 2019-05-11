@@ -1,0 +1,43 @@
+<div class="tna-filters" fxLayout="row" fxLayoutAlign="space-between center">
+    <md-input-container fxFlex fxFlex.lt-md="48" floatPlaceholder="never">
+        <input mdInput #filter placeholder="Filter rows">
+    </md-input-container>
+    <!-- <div fxFlex="39" fxFlex.lt-md="48" fxLayout="row" fxLayoutAlign="space-around center"> -->
+    <!-- <md-input-container fxFlex="45" floatPlaceholder="never">
+        <input mdInput [(ngModel)]="dates.start" (ngModelChange)="onDateChanged($event)" [mdDatepicker]="startDate" placeholder="Start date">
+        <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
+    </md-input-container>
+    <md-datepicker #startDate></md-datepicker>
+
+    <md-input-container fxFlex="45" floatPlaceholder="never">
+        <input mdInput [(ngModel)]="dates.end" (ngModelChange)="onDateChanged($event)" [mdDatepicker]="endDate" placeholder="End date">
+        <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
+    </md-input-container>
+    <md-datepicker #endDate></md-datepicker> -->
+    <!-- </div> -->
+    <div class="tna-account-status" fxFlex="20" fxLayout="row" fxHide.lt-md fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div class="tna-status-title">Received</div>
+            <div>€ {{ accountStatus.received | number:'1.0-2' }}</div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div class="tna-status-title">Paid</div>
+            <div>€ {{ accountStatus.paid | number:'1.0-2' }}</div>
+        </div>
+    </div>
+</div>
+
+<md-table #table [dataSource]="dataSource" mdSort>
+    <!-- ID Column -->
+    <ng-container *ngFor="let col of displayedColumns;" [cdkColumnDef]="col">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>
+            {{ col!=='ref_num' ? col.toUpperCase():'REFERENCE' }}
+        </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{ col==='date' ? (row[col] | date:'dd.MM.y') : row[col] }}</md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+</md-table>
+<md-paginator #paginator [length]="data.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+</md-paginator>

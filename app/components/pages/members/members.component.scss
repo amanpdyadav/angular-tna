@@ -1,0 +1,21 @@
+@import "../../../../variables/variables";
+
+.tna-header-1 {
+    margin-bottom: 1.6rem;
+}
+
+.tna-content {
+    width: 100%;
+    .tna-member-container {
+        margin-top: 0.8rem;
+        .tna-header-1 {
+            color: $hover-text-color;
+        }
+        .tna-member-card {
+            min-width: 40%;
+        }
+    }
+    .tna-divider-line {
+        margin-top: 3.2rem;
+    }
+}

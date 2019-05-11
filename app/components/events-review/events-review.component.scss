@@ -1,0 +1,25 @@
+@import "../../../variables/variables";
+
+.tna-event {
+    .tna-paragraph-2 {
+        text-align: start;
+    }
+    .tna-event-header {
+        border-bottom: 0.1rem solid $color-event-header-border;
+        h4, h5 {
+            margin: $default-spacing 0;
+        }
+        h4 {
+            color: $color-paragraph-header;;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        h5 {
+            font-size: 1rem;
+            font-style: italic;
+        }
+    }
+    p {
+        color: $color-paragraph;
+    }
+}

@@ -1,0 +1,24 @@
+<div class="tna-content" fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div fxLayout="row" class="tna-event-action-buttons">
+        <button md-raised-button color="accent" (click)="createEvent()" *ngIf="user">
+            CREATE NEW EVENT
+        </button>
+        <div fxFlex></div>
+        <div fxLayout="row" fxLayoutGap="4px">
+            <button md-raised-button color="primary" (click)="registerForEvent()"
+                    *ngIf="selectedEvent?.registrationRequired && registrationOpen">
+                REGISTER
+            </button>
+            <button md-raised-button color="accent" (click)="editEvent(selectedEvent)"
+                    *ngIf="selectedEvent?.owner === user?.uid">
+                EDIT
+            </button>
+        </div>
+    </div>
+    <div class="tna-event-lists" fxLayout="row" fxLayoutGap="50px">
+        <tna-event-card *ngFor="let evt of events;" [event]="evt"
+                        [style.opacity]="selectedEvent.uid === evt.uid ? '0.6':'1'"
+                        (click)="selectedEvent=evt; setRegistrationOpen(evt)"></tna-event-card>
+    </div>
+    <tna-event-details [user]="user" [selectedEvent]="selectedEvent"></tna-event-details>
+</div>

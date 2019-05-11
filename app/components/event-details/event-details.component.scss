@@ -1,0 +1,62 @@
+@import "../../../variables/variables";
+
+.tna-event-details-container {
+    margin: 1rem 0;
+}
+
+.tna-event-title-description {
+    padding: .8rem 0;
+    border-bottom: .1rem dashed $card-background;
+    margin-bottom: .8rem;
+}
+
+.tna-event-time-location {
+    font-size: 1.3rem;
+    md-icon {
+        font-size: 1.4rem;
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+;
+}
+
+.tna-event-prices {
+    .price {
+        font-size: 1.4rem;
+    }
+    md-icon {
+        font-size: 1.6rem;
+        height: 1.6rem;
+        width: 1.6rem;
+    }
+;
+}
+
+.tna-event-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.tna-description {
+    font-size: 1.3rem;
+    overflow: scroll;
+    max-height: unset !important;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    pre {
+        margin: 0;
+    }
+}
+
+.tna-event-action-buttons {
+    margin-bottom: .4rem;
+    button {
+        height: 3.0rem;
+    }
+}
+
+.tna-warning {
+    font-size: 14px;
+    color: $color-warn;
+}

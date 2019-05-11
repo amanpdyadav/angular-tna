@@ -1,0 +1,47 @@
+<div class="tna-filters" fxLayout="row" fxLayoutAlign="space-between end">
+    <md-input-container fxFlex="33" fxFlex.lt-md="48" floatPlaceholder="never">
+        <input mdInput #filter placeholder="Filter rows">
+    </md-input-container>
+    <md-select fxFlex="40" fxFlex.lt-md="48" placeholder="Events" floatPlaceholder="never" class="tna-events-filters">
+        <md-option (click)="onEventsSelection('')" value="">All</md-option>
+        <md-option *ngFor="let evt of eventsWithRegistration;" (click)="onEventsSelection(evt.uid)"
+                   [value]="evt?.title">{{ evt?.title }}
+        </md-option>
+    </md-select>
+    <div class="tna-event-status" fxFlex="23" fxLayout="row" fxHide.lt-md fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div class="tna-status-title">Adults</div>
+            <div>{{ eventStatus.adults }}</div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div class="tna-status-title">Family</div>
+            <div>{{ eventStatus.family }}</div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div class="tna-status-title">Total</div>
+            <div>€ {{ eventStatus.total | number:'1.0-2' }}</div>
+        </div>
+    </div>
+</div>
+<md-table #table [dataSource]="dataSource" mdSort>
+
+    <!-- ID Column -->
+    <ng-container *ngFor="let col of displayedColumns;let i=index;" [cdkColumnDef]="col">
+        <md-header-cell *cdkHeaderCellDef md-sort-header> {{ displayedTitles[i].toUpperCase() }}</md-header-cell>
+        <md-cell *cdkCellDef="let row">
+			<span *ngIf="col==='paid'">
+        <span *ngIf="userProfile?.isBoardMember && !row[col]; else paid">
+            <button md-raised-button color="primary" (click)="confirmEventPayment(row.uid)">CONFIRM</button>
+        </span>
+			  <ng-template #paid>{{ row[col] ? 'PAID' : 'UNPAID'}}</ng-template>
+			</span>
+            <span *ngIf="col!=='paid'">{{ row[col] }}</span>
+        </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;" mdTooltipPosition="above"
+            [mdTooltip]="'Registered for event = ' + getEventName(row?.owner)"></md-row>
+</md-table>
+<md-paginator #paginator [length]="data.length" [pageIndex]="0" [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"></md-paginator>

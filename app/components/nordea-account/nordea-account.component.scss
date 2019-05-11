@@ -1,0 +1,33 @@
+/deep/ .tna-nordea {
+    img {padding-bottom: 2pt; width: 117px; height: 27px;}
+    td, th {vertical-align: top;}
+    b {font-weight: bold;}
+    pre {margin: 0}
+    .xb {text-align: right; font-weight: bold;}
+    .xr {text-align: right;}
+    .xc {text-align: center;}
+    .fr {float: right;}
+    .frr {float: right; text-align: right;}
+    .pg_header {width: 100%; height: 34mm;}
+    .pg_main   {width: 100%; height: 210mm; font: 8pt/10pt Courier New, Monospace;}
+    .pg_main_t {width: 100%; height: 210mm; font: 10pt/11pt Courier New, Monospace;}
+    .pg_footer {width: 100%; height: 8mm; padding-top: 2mm;}
+    .footnote  {font-size: 7pt;}
+    .info {padding-top: 2mm; padding-bottom: 2mm; padding-left: 2px;}
+    .info_l {padding-top: 2mm; padding-bottom: 2mm; padding-left: 6mm;  height: 160mm;}
+    .info_d {padding-top: 2mm; padding-bottom: 2mm; padding-left: 6mm;}
+    .body { font: 9pt/11pt Arial, Times New Roman; color: #000; background: #999; margin: 2mm; padding: 0;}
+    /* print page A4 imitation with about 20mm print margins (A4: 210x297mm, Letter: 216x279mm) */
+    .mypg, .mypg_last {background: #fff; height: 254mm; border-right: 2pt solid #000; border-bottom: 2pt solid #000; padding: 20mm;}
+    .no_prnt { height: 2mm; margin: 0;}
+
+}
+@media print {
+    /deep/ .tna-nordea{
+        /* real print */
+        .body {background: #fff; padding: 0; margin: 0}
+        .mypg {border: 0; padding: 1pt; margin: auto; page-break-after: always;}
+        .mypg_last {border: 0; padding: 1pt; margin: auto;}
+        .no_prnt {display: none;}
+    }
+}

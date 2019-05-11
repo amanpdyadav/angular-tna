@@ -1,0 +1,47 @@
+<div class="tna-header-1">Contact</div>
+<div class="tna-content" fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div fxFlex="48" fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div fxFlex="50" class="tna-contact-map">
+            <iframe width="600" height="450" frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJu9uOgYR1jEYRAMJLVVG1AAQ&key=AIzaSyAxm7nM5Ge1wPwnJZnwVZL_neXBhAK-S8Y"
+                    allowfullscreen></iframe>
+        </div>
+        <div fxFlex="48">
+            <div class="tna-name tna-header-2">Turku Nepali Associations Ry</div>
+            <div class="tna-address">Turku</div>
+            <div class="tna-address">Finland</div>
+            <div class="tna-address">turkunepal@gmail.com</div>
+        </div>
+    </div>
+    <div fxFlex="1px" class="tna-divider"></div>
+    <div class="tna-header-2">SEND MESSAGE</div>
+    <div fxFlex="25" fxLayout="row" fxLayoutAlign="space-between stretch" [formGroup]="contactForm">
+        <div fxFlex="30" fxLayout="column" fxLayoutAlign=" stretch" fxLayoutGap="16px">
+            <input placeholder="Name:" formControlName="name">
+            <div fxLayout="column">
+                <input type="email" placeholder="E-mail:" formControlName="email">
+                <div class="tna-warning"
+                     *ngIf="contactForm.controls['email'].dirty && !contactForm.controls['email'].valid">*Not a valid
+                    email.
+                </div>
+            </div>
+
+            <input type="number" placeholder="Phone: " formControlName="phone">
+        </div>
+        <div fxFlex="65" fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="32px">
+            <textarea placeholder="Message:" cols="60" rows="10" formControlName="message"></textarea>
+            <div class="tna-warning" *ngIf="!contactForm.controls.message.valid">*Minimum 10 character is required</div>
+        </div>
+    </div>
+    <div fxFlex="15" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex></div>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <button md-raised-button color="warn" (click)="resetForm()">CANCEL</button>
+            <button md-raised-button color="primary" (click)="sendMessage(contactForm.value)"
+                    [disabled]="!contactForm.valid || sendingMessage">
+                <md-spinner *ngIf="sendingMessage"></md-spinner>
+                <span *ngIf="!sendingMessage">SEND</span>
+            </button>
+        </div>
+    </div>
+</div>

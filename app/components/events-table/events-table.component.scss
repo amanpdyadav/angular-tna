@@ -1,0 +1,33 @@
+@import "../../../variables/variables";
+
+:host {
+    font-size: 14px;
+}
+
+.tna-filters {
+    margin-top: 0.8rem;
+}
+
+md-select {
+    transform: translateY(-1.25em);
+}
+
+.tna-event-status {
+    .tna-status-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        & ~ div {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 0.3rem 0;
+        }
+    }
+}
+
+.mat-column-families, .mat-column-kids, .mat-column-adults, .mat-column-vegetarians {
+    flex: 1;
+}
+
+.mat-column-name {
+    flex: 2;
+}

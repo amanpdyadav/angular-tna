@@ -1,0 +1,18 @@
+<img
+    [src]="event.image ? event.image : 'https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Fevent.jpg?alt=media&token=a7e43611-f6b1-4bb2-8041-95d8855d6860'"
+    alt="">
+<div fxLayout="column" class="tna-event-card">
+    <div fxFlex="20px" class="tna-event-date" fxLayout="row" fxLayoutAlign="center center">
+        <span>{{ event?.date | date:'d MMM y'}}</span>
+    </div>
+    <div fxFlex="70" fxLayout="column" fxLayoutAlign="center center">
+        <div class="tna-event-title">{{ (event?.title).substr(0, 30)}}{{event?.title.length >= 30 ? '...' : ''}}</div>
+        <div fxLayout="row">
+            <md-icon>location_on</md-icon>
+            <div fxLayout="column" class="tna-event-address">
+                <span>{{ event?.address | address }}</span>
+                <span>Finland</span>
+            </div>
+        </div>
+    </div>
+</div>

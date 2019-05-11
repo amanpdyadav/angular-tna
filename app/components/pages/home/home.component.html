@@ -1,0 +1,65 @@
+<div class="tna-header-1">HOME</div>
+<div class="tna-content" fxLayout="row" fxLayoutGap="16px">
+    <div fxLayout="column" fxFlex>
+        <div class="tna-paragraph-1">A nonprofit organization with the aim of organizing cultural and social events to
+            promote Nepal and Nepalese community
+        </div>
+        <p class="tna-paragraph-2">In 2004 there were only four Nepalese who lived in Turku; out of those, two were
+            students. Since then, the number of Nepalese
+            residing in Turku has been gradually increasing. Today, the Nepalese community has over a 100 people, from
+            entrepreneurs
+            and restaurateurs to undergraduate and PhD students.</p>
+        <p class="tna-paragraph-2">Turku Nepal Association (TNA) was established in 2014 as a nonprofit organization
+            with the aim of organizing cultural and
+            social events to promote Nepal and Nepalese community residing in Turku, Finland.</p>
+        <p class="tna-paragraph-2">With the increase in the number of people, we saw a need for an association that
+            would bring all of us together in times
+            of celebration as well as in times of need.</p>
+        <p class="tna-paragraph-2">The association supports members of Nepali community in Turku and provides
+            information about Nepal as a place to visit
+            and do business in. In addition, the association raises funds for operations and development activities for
+            the Nepali
+            community as well as communities in Nepal.</p>
+
+        <div fxLayout="column" class="tna-membership-benifit">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="tna-header-2">Membership benefits</div>
+            </div>
+            <ul>
+                <li>10% in every paid events.</li>
+                <li>Access to register events under TNA.</li>
+                <li>Access to monitor the accounts for your own events.</li>
+                <li>One sub domain under turkunepal.fi</li>
+                <li>256MB of space at TNA server for hosting your web page.</li>
+            </ul>
+            <div class="tna-read-more" *ngIf="!authService.currentUser" (click)="openSignUpDialog()">Click to register
+                as a member
+            </div>
+        </div>
+    </div>
+    <!--<div fxFlex="1px" class="tna-page-divider"></div>-->
+    <!--<div fxFlex="35%" fxLayout="column">-->
+    <!--<div fxLayout="column">-->
+    <!--<div class="tna-header-2">Activities by TNA</div>-->
+    <!--<div fxLayout="column" fxLayoutGap="16px">-->
+    <!--<ng-container *ngFor="let act of data?.activities; let l=last">-->
+    <!--<tna-events-review [data]="act" eventType="activities"></tna-events-review>-->
+    <!--</ng-container>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div fxFlex="1px" class="tna-page-divider"></div>-->
+
+    <!--<div fxFlex fxLayout="column" class="tna-upcoming-evetns" *ngIf="data?.events.length > 0">-->
+    <!--<div class="tna-header-2">Upcoming events</div>-->
+    <!--<div fxLayout="column" fxLayoutGap="16px">-->
+    <!--<ng-container *ngFor="let evt of data?.events">-->
+    <!--<tna-events-review [data]="evt" navigateTo="events"></tna-events-review>-->
+    <!--</ng-container>-->
+    <!--&lt;!&ndash;Last content to be fully visible &ndash;&gt;-->
+    <!--<div></div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
+</div>

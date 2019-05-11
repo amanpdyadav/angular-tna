@@ -1,0 +1,111 @@
+@import "../variables/variables";
+
+.tna-main-container {
+    height: calc(100vh - 96px);
+    min-width: 102rem;
+    margin: $default-spacing * 3 $default-spacing * 3 0 $default-spacing * 3;
+    .tna-nav-column {
+        background: $navigation-tab-background;
+        .tna-flag {
+            max-height: 5rem;
+        }
+        .tna-logo {
+            display: none;
+            height: 40px;
+            margin-right: calc(50% - 20px);
+            margin-top: 5px;
+        }
+        .tna-tab-margin-right {
+            background: $color-text-light;
+        }
+        .tna-tab-margin-left {
+            background: $body-background;
+        }
+        .tna-tabs-name-container {
+            padding-bottom: $default-spacing;
+            padding-right: $default-spacing * 3;
+            padding-left: $default-spacing * 3;
+            .tna-tabs {
+                overflow: auto;
+            }
+            .tna-tabs label {
+                cursor: pointer;
+                padding: $default-spacing / 2 0;
+                margin-top: $default-spacing / 3;
+                border-bottom: 0.1rem dashed $body-background;
+                .tna-header-1 {
+                    letter-spacing: 0.4rem;
+                    color: $color-text-light;
+                }
+                &:hover .tna-header-1, &.tna-tab-active .tna-header-1 {
+                    color: $color-primary;
+                }
+            }
+            .tna-login-container {
+                button {
+                    width: 100%;
+                }
+                .tna-read-more {
+                    color: $color-text-light;
+                    text-align: center;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+        .tna-logo-container {
+            position: relative;
+            background: $company-logo-background;
+            .tna-logo-img-titles {
+                height: 100%;
+                p, label {
+                    color: $color-text-light;;
+                }
+                p {
+                    font-size: 1.6rem;
+                    letter-spacing: 0.1rem;
+                }
+                label {
+                    font-size: 1.4rem;
+                }
+                img {
+                    max-width: 7.5rem;
+                    max-height: 7.5rem;
+                    margin: 0.5rem;
+                }
+            }
+            &:before {
+                border: solid transparent;
+                content: " ";
+                position: absolute;
+                border-right-color: $navigation-tab-background;
+                border-bottom-color: $navigation-tab-background;
+                border-top-color: $body-background;
+                border-left-color: $body-background;
+                border-width: 1.5rem;
+            }
+            &:after {
+                border: solid transparent;
+                content: " ";
+                position: absolute;
+                bottom: 0;
+                border-right-color: $navigation-tab-background;
+                border-top-color: $navigation-tab-background;
+                border-bottom-color: $body-background;
+                border-left-color: $body-background;
+                border-width: 1.5rem;
+            }
+        }
+    }
+    .tna-body-column {
+        background: $color-text-light;
+        .tna-banner-holder {
+            //background:  url("../assets/banner.png") repeat-x;;
+        }
+        .tna-body-container {
+            height: calc(100vh - 144px);
+            overflow: scroll;
+            margin: 0 1.6rem 1.6rem 1.6rem;
+            position: relative;
+        }
+    }
+}

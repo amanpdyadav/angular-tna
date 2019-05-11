@@ -1,0 +1,49 @@
+<ng-container *ngIf="!resetPassword">
+    <div [formGroup]="loginForm">
+        <div md-dialog-title>Login</div>
+        <md-dialog-content fxLayout="column" fxLayoutGap="20px">
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Ffavicon.png?alt=media&token=ed77fd8c-aff9-483f-8650-3eac97d9901a">
+            <div class="tna-error" *ngIf="error">{{ error }}</div>
+            <button md-raised-button color="primary" (click)="loginWithGoogle()">Google</button>
+            <md-input-container floatPlaceholder="always">
+                <input mdInput type="Email" placeholder="Username" formControlName="email">
+            </md-input-container>
+            <md-input-container floatPlaceholder="always">
+                <input mdInput type="password" placeholder="Password" formControlName="password">
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions fxLayout="column" fxLayoutGap="8px">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <button md-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+                <button md-raised-button color="primary" [disabled]="!loginForm.valid"
+                        (click)="loginWithEmail(loginForm.value)">Login
+                </button>
+            </div>
+            <div class="tna-read-more" (click)="resetPassword=true;error=''">Forgot Password</div>
+        </md-dialog-actions>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="resetPassword">
+    <div [formGroup]="registerForm">
+        <div md-dialog-title>Reset Password Request</div>
+        <md-dialog-content fxLayout="column" fxLayoutGap="20px">
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Ffavicon.png?alt=media&token=ed77fd8c-aff9-483f-8650-3eac97d9901a">
+            <div class="tna-error" *ngIf="error">{{ error }}</div>
+            <md-input-container floatPlaceholder="always">
+                <input mdInput type="email" placeholder="Enter your email" formControlName="email">
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions fxLayout="column" fxLayoutGap="8px">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <button md-raised-button color="warn" (click)="resetPassword=false;error=''">Back</button>
+                <button md-raised-button color="primary" [disabled]="!registerForm.valid"
+                        (click)="onResetPassword(registerForm.value)">Send
+                </button>
+            </div>
+        </md-dialog-actions>
+    </div>
+</ng-container>

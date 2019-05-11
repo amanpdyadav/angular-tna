@@ -1,0 +1,32 @@
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between end">
+        <div class="tna-header-1">Account</div>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <button md-raised-button color="primary" *ngIf="selectedTab===0"
+                    (click)="showNodeaTransaction=!showNodeaTransaction">
+                {{ showNodeaTransaction ? 'TABLE' : 'NORDEA' }}
+            </button>
+            <div class="tna-upload" *ngIf="userProfile?.isBoardMember">
+                <!-- <button md-raised-button color="accent">
+          <md-icon>attachment</md-icon>
+          <span>Upload</span>
+         </button> -->
+                <input type="file" accept=".prn" (change)="uploadAccountFile($event)" class="tna-upload-button">
+            </div>
+        </div>
+    </div>
+    <div class="tna-content">
+        <md-tab-group (selectChange)="selectedTab=$event.index">
+            <md-tab label="Bank Account">
+                <tna-account-table *ngIf="!showNodeaTransaction"></tna-account-table>
+                <nordea-account *ngIf="showNodeaTransaction"></nordea-account>
+            </md-tab>
+            <md-tab label="Member">
+                <tna-member-table></tna-member-table>
+            </md-tab>
+            <md-tab label="Events">
+                <tna-events-table></tna-events-table>
+            </md-tab>
+        </md-tab-group>
+    </div>
+</div>

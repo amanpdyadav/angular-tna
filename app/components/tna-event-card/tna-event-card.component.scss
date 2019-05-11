@@ -1,0 +1,75 @@
+@import "../../../variables/variables";
+
+:host {
+    width: 198px;
+    position: relative;
+}
+
+img {
+    width: 15.0rem;
+    height: 15.0rem;
+}
+
+.tna-event-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15.0rem;
+    width: 15.0rem;
+    .tna-event-date {
+        padding: 1.6rem;
+        background: $navigation-tab-background;
+        margin-top: 1.4rem;
+        width: 7.5rem;
+        margin-left: 8.7rem;
+        position: relative;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+        color: $color-text-light;
+        &:before {
+            border: solid transparent;
+            content: " ";
+            position: absolute;
+            border-right-color: $navigation-tab-background;
+            border-top-color: $navigation-tab-background;
+            border-width: 1.6rem;
+            top: .0rem;
+            left: -3.2rem;
+        }
+        &:after {
+            border: solid transparent;
+            content: " ";
+            position: absolute;
+            bottom: 0;
+            border-bottom-color: $navigation-tab-background;
+            border-left-color: $navigation-tab-background;
+            border-width: 1.6rem;
+            right: -3.2rem;
+        }
+    }
+    .tna-event-title {
+        font-weight: 700;
+        color: $color-text-light;
+        letter-spacing: .2rem;
+        padding: .5rem;
+        max-height: 3.0rem;
+        font-size: 1.2rem;
+        overflow: hidden;
+        margin-bottom: 1.0rem;
+    }
+    .tna-event-address {
+        overflow: hidden;
+        max-height: 3.8rem;
+        font-size: 1.0rem;
+        letter-spacing: .2rem;
+        padding-bottom: 1.0rem;
+        color: $color-text-light;
+    }
+    md-icon {
+        margin-right: .5rem;
+        color: $color-text-light;
+        margin-top: .3rem;
+    }
+}
+

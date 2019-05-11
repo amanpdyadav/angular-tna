@@ -1,0 +1,212 @@
+$icon-location: 'https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Fsocial_icons.png?alt=media&token=bc1c77d3-7062-453a-8603-ef8b4a72edef';
+$github-location: 'https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Fgithub.png?alt=media&token=16f287b1-6bff-4af3-9fe0-01e9a5f66605';
+
+.social {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social li {
+    display: inline-block;
+    margin: 5px 5px 5px 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.15);
+    background-color: #d9d9d9;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset, 0 2px 1px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset, 0 2px 1px rgba(255, 255, 255, 1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset, 0 2px 1px rgba(255, 255, 255, 1);
+    -webkit-transition: background-color 0.5s 0s ease;
+    -moz-transition: background-color 0.5s 0s ease;
+    -o-transition: background-color 0.5s 0s ease;
+}
+
+.icon-picasa {
+    width: 30px;
+    height: 30px;
+}
+
+.picasa:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.icon-dribble {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -30px 0;
+}
+
+.dribble:hover {
+    background-color: rgba(241, 87, 138, 0.8);
+}
+
+.icon-twitter {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -60px 0;
+}
+
+.twitter:hover {
+    background-color: rgba(0, 172, 237, 0.8);
+}
+
+.icon-facebook {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -90px 0;
+}
+
+.facebook:hover {
+    background-color: rgba(60, 90, 151, 0.8);
+}
+
+.icon-google {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -120px 0;
+}
+
+.google:hover {
+    background-color: rgba(220, 62, 54, 0.8);
+}
+
+.icon-pinterest {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -150px 0;
+}
+
+.pinterest:hover {
+    background-color: rgba(197, 36, 35, 0.8);
+}
+
+.icon-instagram {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -180px 0;
+}
+
+.instagram:hover {
+    background-color: rgba(32, 92, 129, 0.8);
+}
+
+.icon-vimeo {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -210px 0;
+}
+
+.vimeo:hover {
+    background-color: rgba(28, 183, 234, 0.8);
+}
+
+.icon-disqus {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -240px 0;
+}
+
+.disqus:hover {
+    background-color: rgba(46, 159, 255, 0.8);
+}
+
+.icon-wordpress {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -270px 0;
+}
+
+.wordpress:hover {
+    background-color: rgba(64, 64, 64, 0.8);
+}
+
+.icon-tumblr {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -300px 0;
+}
+
+.tumblr:hover {
+    background-color: rgba(48, 79, 108, 0.8);
+}
+
+.icon-youtube {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -330px 0;
+}
+
+.youtube:hover {
+    background-color: rgba(209, 43, 46, 0.8);
+}
+
+.icon-rss {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -360px 0;
+}
+
+.rss:hover {
+    background-color: rgba(232, 104, 0, 0.8);
+}
+
+.icon-flickr {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -390px 0;
+}
+
+.flickr:hover {
+    background-color: rgba(254, 0, 113, 0.8);
+}
+
+.icon-linkedin {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -420px 0;
+}
+
+.linkedin:hover {
+    background-color: rgba(0, 101, 153, 0.8);
+}
+
+.icon-skype {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -450px 0;
+}
+
+.skype:hover {
+    background-color: rgba(26, 184, 242, 0.8);
+}
+
+.icon-github {
+    width: 30px;
+    height: 30px;
+    background: url($github-location);
+}
+
+.github:hover {
+    background-color: black;
+}
+
+.icon-deviant {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -480px 0;
+}
+
+.deviant:hover {
+    background-color: rgba(79, 97, 85, 0.8);
+}
+
+.icon-vkontakte {
+    width: 30px;
+    height: 30px;
+    background: url($icon-location) -510px 0;
+}
+
+.vkontakte:hover {
+    background-color: rgba(76, 111, 150, 0.8);
+}

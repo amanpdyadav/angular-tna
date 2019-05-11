@@ -1,0 +1,90 @@
+<div md-dialog-title>Event Registrations</div>
+<md-dialog-content fxLayout="row" [formGroup]="registerForEventForm">
+    <div fxFlex fxLayout="column" fxLayoutAlign=" stretch">
+        <md-input-container floatPlaceholder="always">
+            <input mdInput placeholder="Full Name" formControlName="name">
+        </md-input-container>
+
+
+        <md-input-container floatPlaceholder="always">
+            <input mdInput type="email" placeholder="Email" formControlName="email">
+        </md-input-container>
+        <div class="tna-warning"
+             *ngIf="registerForEventForm.get('email').touched && !registerForEventForm.controls.email.valid">*Not a
+            valid email.
+        </div>
+
+
+        <md-input-container floatPlaceholder="always">
+            <input mdInput type="tel" placeholder="Phone" formControlName="phone">
+        </md-input-container>
+        <div class="tna-warning"
+             *ngIf="registerForEventForm.get('phone').touched && !registerForEventForm.controls.phone.valid">*Minimum 10
+            number is required
+        </div>
+
+
+        <md-input-container floatPlaceholder="always">
+            <input mdInput placeholder="Address" formControlName="address">
+        </md-input-container>
+
+    </div>
+    <div class="tna-divider" fxFlex="1px"></div>
+    <div class="tna-event-details" fxLayout="column" fxLayoutAlign=" center">
+        <div class="tna-details-title">PERSONS</div>
+        <div class="tna-warning" *ngIf="registerForEventForm.hasError('not_selected')">
+            * At least 1 adult or 1 family is required.
+        </div>
+        <div class="tna-event-prices" fxLayout="column" fxLayoutAlign=" center" fxLayoutGap="16px">
+            <div fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="8px">
+                <md-icon mdTooltipPosition="above" mdTooltip="Adult">person</md-icon>
+                <span class="price">€ {{ data?.adultPrice | number: '2.2-2' }} x </span>
+                <md-select formControlName="adults" (change)="updateNumbers(true)">
+                    <md-option *ngFor="let i of createArray(persons.adult)" [value]="i+''">{{i}}</md-option>
+                </md-select>
+            </div>
+            <div fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="8px">
+                <md-icon mdTooltipPosition="above" mdTooltip="Family">group</md-icon>
+                <span class="price">€ {{ data?.familyPrice | number: '2.2-2'}} x </span>
+                <md-select formControlName="families" (change)="updateNumbers(true)">
+                    <md-option *ngFor="let i of createArray(persons.family)" [value]="i+''">{{i}}</md-option>
+                </md-select>
+            </div>
+            <div fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="8px">
+                <md-icon mdTooltipPosition="above" mdTooltip="Child above 10 years.">child_care</md-icon>
+                <span class="price">€ {{ data?.kidPrice | number: '2.2-2' }} x </span>
+                <md-select formControlName="kids" (change)="updateNumbers()">
+                    <md-option *ngFor="let i of createArray(persons.children)" [value]="(i+1)+''">{{i+1}}</md-option>
+                </md-select>
+            </div>
+            <div fxLayout="row" fxLayoutAlign=" end" fxLayoutGap="8px">
+                <md-icon mdTooltipPosition="above" mdTooltip="Vegitarian.">
+                    <img class="tna-veg"
+                         src="https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Ficon-veg.png?alt=media&token=81c78f7b-bd46-4622-83fc-8090dfb446e1">
+                </md-icon>
+                <span class="price">Vegetarian </span>
+                <md-select formControlName="vegetarians">
+                    <md-option *ngFor="let i of createArray(persons.veg)" [value]="(i+1)+''">{{i+1}}</md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="column" fxLayoutGap="16px" fxLayoutAlign=" center">
+            <div class="tna-discount" *ngIf="userProfile?.membershipPaid">You have 10% discount on this event.</div>
+            <label>TOTAL = € {{ persons?.totalAmount | number:'1.2-2' }}</label>
+        </div>
+    </div>
+</md-dialog-content>
+<md-dialog-actions fxLayout="row">
+    <div fxFlex></div>
+    <div fxLayout="row" fxLayoutGap="16px">
+        <button md-raised-button color="warn" (click)="closeDialog()">
+            CANCEL
+        </button>
+        <button md-raised-button color="primary" [disabled]="!registerForEventForm.valid && !registering"
+                (click)="registerForEvent()">
+            <md-spinner *ngIf="registering"></md-spinner>
+            <span *ngIf="!registering">REGISTER</span>
+        </button>
+    </div>
+</md-dialog-actions>

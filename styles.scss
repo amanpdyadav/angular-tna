@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables/social-icons';
+@import 'variables/variables';
+@import 'variables/tna-palette';
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$tna-app-primary: mat-palette($tna-palette);
+$tna-app-accent: mat-palette($tna-accent-palette);
+
+
+// The warn palette is optional (defaults to red).
+$tna-app-warn: mat-palette($tna-warn-palette);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$tna-app-theme: mat-light-theme($tna-app-primary, $tna-app-accent, $tna-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($tna-app-theme);
+
+
+// USER rem for rest of the app
+// Set 1rem = 10px
+html {
+  font-size: 10px;
+  body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      background: $body-background;
+      .mat-app-background{
+        background: transparent
+      }
+  }
+}
+@media screen and (max-width: 599px) {
+    html {
+        font-size: 6px;
+    }
+    .tna-main-container{
+        margin: 0 !important;
+    }
+    .tna-logo-container, .tna-tab-margin-left, .tna-tab-margin-right{
+        display: none;
+    }
+    .tna-tabs-name-container{
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .tna-nav-column .tna-logo {
+        display: block !important;
+    }
+}
+a {
+    text-decoration: none;
+}
+label{
+    outline: none;
+}
+.tna-header-1 {
+    font: 700 1.6rem/2rem 'Lora', serif;
+    text-transform: uppercase;
+}
+
+.tna-header-2 {
+    font: 700 1.4rem 'Lora', serif;
+    text-transform: uppercase;
+}
+.tna-paragraph-1 {
+    font: 700 1.4rem/2rem Arial, sans-serif;
+}
+.tna-paragraph-2 {
+    font: normal 1.3rem/2rem Arial, sans-serif;
+}
+.tna-read-more{
+    cursor: pointer;
+    font: 1.2rem/1.4rem Arial, sans-serif;
+    text-decoration: underline;
+    margin-bottom: $default-spacing/2;
+}

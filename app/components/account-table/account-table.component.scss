@@ -1,0 +1,25 @@
+@import "../../../variables/variables";
+
+:host {
+    font-size: 14px;
+}
+
+.tna-filters {
+    margin-top: 0.8rem;
+}
+
+.tna-account-status {
+    .tna-status-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        & ~ div {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 0.3rem 0;
+        }
+    }
+}
+
+.mat-column-amount, .mat-column-date {
+    flex: 0.3;
+}

@@ -1,0 +1,39 @@
+<md-card>
+    <md-card-header>
+        <md-card-title>{{(member.firstName || '') + ' ' + (member.lastName || '')}}</md-card-title>
+        <md-card-subtitle>{{memberPosition[member.post] || memberPosition[member.post] || '&nbsp;'}}</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image
+         [src]="member.profilePicture ? member.profilePicture : 'https://firebasestorage.googleapis.com/v0/b/turkunepal-21097.appspot.com/o/tna%2Fassets%2Favatar.jpg?alt=media&token=59b8e093-0d15-4e3d-a152-4bf11b4934f1'">
+    <md-card-actions>
+        <div class="social">
+            <ul>
+                <li class="facebook" *ngIf="member.facebook">
+                    <a [href]="member.facebook" target="_blank">
+                        <div class="icon-facebook"></div>
+                    </a>
+                </li>
+                <li class="linkedin" *ngIf="member.linkedn">
+                    <a [href]="member.linkedn" target="_blank">
+                        <div class="icon-linkedin"></div>
+                    </a>
+                </li>
+                <li class="github" *ngIf="member.github">
+                    <a [href]="member.github" target="_blank">
+                        <div class="icon-github"></div>
+                    </a>
+                </li>
+                <li class="google" *ngIf="member.google">
+                    <a [href]="member.google" target="_blank">
+                        <div class="icon-google"></div>
+                    </a>
+                </li>
+                <li class="skype" *ngIf="member.skype">
+                    <a [href]="member.skype" target="_blank">
+                        <div class="icon-skype"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </md-card-actions>
+</md-card>
